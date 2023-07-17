@@ -15,4 +15,11 @@ class HomeController extends AbstractController
             'controller_name' => 'HomeController',
         ]);
     }
+
+
+    #[Route('/condition-general', name: 'app_condition_general')]
+    public function condition_general(): Response
+    {
+        return $this->render('home/condition_general.html.twig');
+    }
 }
