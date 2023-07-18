@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello EmployesController!
+{% endblock %}
+
+{% block body %}
+
+	{{form_start(form)}}
+	<button class='btn btn-warning'>{{button_label|default('save')}}</button>
+	{{form_end(form)}}
+{% endblock %}
