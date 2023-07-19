@@ -5,6 +5,10 @@
 
 {% block body %}
 	<br><br>
+	<h1>New Employe</h1>
+	<a class="btn btn-dark" href="{{path('app_employes_new')}}">Create New Employe</a>
+	<br><br>
+
 	<table class="table">
 		<thead>
 			<tr class="table-primary">
@@ -13,13 +17,14 @@
 				<th scope="col">FirstName</th>
 				<th scope="col">Salary</th>
 				<th scope="col">Departement</th>
+				<th scope="col" colspan="3" class="text-center">Action</th>
 			</tr>
 		</thead>
 		<tbody>
 			{% for employe in employes %}
 				<tr>
-					<th scope="row">
-						{{employe.id}}</th>
+					<td scope="row">
+						{{employe.id}}</td>
 					<td>
 						{{employe.name}}</td>
 					<td>
@@ -28,6 +33,15 @@
 						{{employe.salary}}</td>
 					<td>
 						{{employe.departement}}</td>
+					<td>
+						<a href="{{path('app_employes_edit',{'id':employe.id})}}" class="btn btn-warning">Edit</td>
+					</td>
+					<td>
+						<a href="{{path('app_employes_delete',{'id':employe.id})}}" class="btn btn-danger">Delete</td>
+					</td>
+					<td>
+						<a href="{{path('app_employes_show',{'id':employe.id})}}" class="btn btn-success">Show</td>
+					</td>
 				</tr>
 			{% endfor %}
 		</tbody>

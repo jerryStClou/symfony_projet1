@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello EmployesController!
+{% endblock %}
+
+{% block body %}
+	<br><br>
+	<table class="table">
+		<thead>
+			<tr class="table-primary">
+				<th scope="col">#</th>
+				<th scope="col">Name</th>
+				<th scope="col">FirstName</th>
+				<th scope="col">Salary</th>
+				<th scope="col">Departement</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td scope="row">
+					{{employe.id}}</td>
+				<td>
+					{{employe.name}}</td>
+				<td>
+					{{employe.firstname}}</td>
+				<td>
+					{{employe.salary}}</td>
+				<td>
+					{{employe.departement}}</td>
+
+			</tr>
+		</tbody>
+	</tbody>
+</table>
+<br><br>{% endblock %}
