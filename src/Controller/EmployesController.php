@@ -32,18 +32,18 @@ class EmployesController extends AbstractController
         $form = $this->createForm(EmployeType::class, $employes);
         $form->handleRequest($request);
 
-        if ($form->isSubmitted()) {
+        if ($form->isSubmitted() && $form->isValid()) {
 
             $entitymanager->persist($employes);
             $entitymanager->flush();
-            $this->redirectToRoute('app_employes');
+            $this->addFlash('success', 'Vous avez ajouter un employe');
+            return $this->redirectToRoute('app_employes');
         }
 
 
         return $this->render('employes/new.html.twig', [
             'form' => $form
         ]);
-        return $this->redirectToRoute('app_employes');
     }
 
 
@@ -56,10 +56,11 @@ class EmployesController extends AbstractController
         $form = $this->createForm(EmployeType::class, $employes);
         $form->handleRequest($request);
 
-        if ($form->isSubmitted()) {
+        if ($form->isSubmitted() && $form->isValid()) {
             $entityManagerInterface->persist($employes);
             $entityManagerInterface->flush();
-            $this->redirectToRoute('app_employes');
+            $this->addFlash('success', 'Vous avez bien modifier un employe');
+            return $this->redirectToRoute('app_employes');
         }
 
         return $this->render('employes/edit.html.twig', [
@@ -75,7 +76,7 @@ class EmployesController extends AbstractController
 
         $entityManagerInterface->remove($employes);
         $entityManagerInterface->flush();
-
+        $this->addFlash('success', 'Vous avez bien supprimer un employe');
         return $this->redirectToRoute('app_employes');
     }
 

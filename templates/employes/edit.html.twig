@@ -4,8 +4,33 @@
 {% endblock %}
 
 {% block body %}
+	<h1 class="text-center">Edit Employee</h1>
+	<div class="border-1 m-5 text-center">
+		{{form_start(form)}}
+		<div>
+			<h4>Departement</h4>
+			<span class='m-1'>{{form_widget(form.departement)}}</span>
+			<span class="m-1">{{form_errors(form.departement)}}</span>
+		</div>
 
-	{{form_start(form)}}
-	<button class='btn btn-warning'>{{button_label|default('save')}}</button>
-	{{form_end(form)}}
+		<div>
+			<h4>salary</h4>
+			<span class='m-1'>{{form_widget(form.salary)}}</span>
+			<span class="m-1">{{form_errors(form.salary)}}</span>
+		</div>
+
+		<div>
+			<h4>name</h4>
+			<span class='m-1'>{{form_widget(form.name)}}</span>
+			<span class="m-1">{{form_errors(form.name)}}</span>
+		</div>
+
+		<div>
+			<h4>firstname</h4>
+			<span class='m-1'>{{form_widget(form.firstname)}}</span>
+			<span class="m-1">{{form_errors(form.firstname)}}</span>
+		</div>
+		<button class='btn btn-warning'>{{button_label|default('update')}}</button>
+		{{form_end(form)}}
+	</div>
 {% endblock %}
